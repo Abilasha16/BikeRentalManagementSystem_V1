@@ -13,8 +13,15 @@ namespace BikeRentalManagementSystem_V1
         //Create Bike
         public void CreateBike(Bike bike)
         {
-            bikes.Add(bike);
-            Console.WriteLine("Bike added successfully.");
+            if (ValidateBikeRentalPrice(bike.RentalPrice))
+            {
+                bikes.Add(bike);
+                Console.WriteLine("Bike added successfully.");
+            }
+            else
+            {
+                Console.WriteLine("Please Enter Positive Value in price");
+            }
         }
 
         //View all bikes
@@ -64,6 +71,18 @@ namespace BikeRentalManagementSystem_V1
                 Console.WriteLine("No Bikes available.");
             }
 
+        }
+
+        public bool ValidateBikeRentalPrice(decimal price)
+        {
+            if (price > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;              
+            }
         }
     }
 }

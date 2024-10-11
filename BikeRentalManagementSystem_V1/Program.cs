@@ -68,9 +68,6 @@ namespace BikeRentalManagementSystem_V1
 
                 }
 
-
-
-
             } while (option != 5);
         }
     }
