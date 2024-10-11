@@ -36,13 +36,33 @@ namespace BikeRentalManagementSystem_V1
         //Edit Bike
         public void UpdateBike(string id,string newBrand,string newModel,decimal newPrice)
         {
-            //var bike = bikes.Find(x => x.);
+            var bike = bikes.Find(x => x.BikeId == id);
+            if(bike != null)
+            {
+                bike.Brand = newBrand;
+                bike.Model = newModel;
+                bike.RentalPrice = newPrice;
+                Console.WriteLine("Bike updated successfully.");
+            }
+            else
+            {
+                Console.WriteLine("No Bikes available.");
+            }
         }
 
         //Delete Bike
         public void DeleteBike(string id)
         {
-            //var bike = bikes.Find(x => x.);
+            var bike = bikes.Find(x => x.BikeId==id);
+            if(bike != null)
+            {
+                bikes.Remove(bike);
+                Console.WriteLine("Bike deleted successfully.");
+            }
+            else
+            {
+                Console.WriteLine("No Bikes available.");
+            }
 
         }
     }

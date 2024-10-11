@@ -41,8 +41,30 @@ namespace BikeRentalManagementSystem_V1
                         break;
                     case 2:
                         manager.ReadBike();
-                        //Console.WriteLine($"ID:");
                         break;
+                    case 3:
+                        Console.Write("Enter the Bike ID to update:");
+                        string updateid = Console.ReadLine();
+                        Console.Write("Enter new Brand:");
+                        string newbrand = Console.ReadLine();
+                        Console.Write("Enter new Model:");
+                        string newmodel = Console.ReadLine();
+                        Console.Write("Enter new rental Price:");
+                        decimal newPrice = decimal.Parse(Console.ReadLine());
+
+                        manager.UpdateBike(updateid,newbrand,newmodel,newPrice);
+                        break;
+                    case 4:
+                        Console.Write("Enter the Bike ID to delete:");
+                        string deleteId= Console.ReadLine();
+                        manager.DeleteBike(deleteId);
+                        break;
+                        case 5:
+                        Console.WriteLine("Exit..");
+                        break;
+                        default:
+                        Console.WriteLine("Please input a number in 1-5");
+                        break ;
 
                 }
 
